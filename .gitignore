@@ -1,3 +1,6 @@
 ___pycache__
 .DS_Store
 *.pyc
+build/*
+dist/*
+iteround.egg-info/*

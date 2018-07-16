@@ -1,18 +1,18 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.rst", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="iteround",
-    version="1.0.0",
+    version="1.0.2",
     author="Calvin DeBoer",
     author_email="cgdeboer@gmail.com",
     description=("Rounds iterables (arrays, lists, sets, etc) "
                  "while maintaining the sum of the initial array."),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/cgdeboer/around",
+    url="https://github.com/cgdeboer/iteround",
     packages=setuptools.find_packages(),
     classifiers=(
         "Programming Language :: Python :: 3",

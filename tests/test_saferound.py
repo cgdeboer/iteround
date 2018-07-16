@@ -1,14 +1,16 @@
 import unittest
 import iteround
+from collections import OrderedDict
 
 
-class TestSimpleMethods(unittest.TestCase):
+class TestSafeRoundMethods(unittest.TestCase):
 
     def setUp(self):
         self.in_list = [4.0001, 3.2345, 3.2321, 6.4523, 5.3453, 7.3422]
         self.in_dict = {'foo': 60.19012964572332,
                         'bar': 15.428802458406679,
                         'baz': 24.381067895870007}
+        self.in_odict = OrderedDict(self.in_dict)
         self.in_tuple = (60.1901296, 15.42880, 24.38106789)
 
         self.neg_in_list = [x * -1. for x in self.in_list]
@@ -21,18 +23,24 @@ class TestSimpleMethods(unittest.TestCase):
     def test_basic_largest(self):
         out = [4.0, 3.23, 3.23, 6.45, 5.35, 7.35]
         self.assertListEqual(iteround.saferound(self.in_list,
-                                               2, iteround.LARGEST), out)
+                                                2, iteround.LARGEST), out)
 
     def test_basic_smallest(self):
         out = [4.0, 3.24, 3.23, 6.45, 5.35, 7.34]
         self.assertListEqual(iteround.saferound(self.in_list,
-                                               2, iteround.SMALLEST), out)
+                                                2, iteround.SMALLEST), out)
 
     def test_dict(self):
         out = {'foo': 60.0,
                'bar': 16.0,
                'baz': 24.0}
         self.assertDictEqual(iteround.saferound(self.in_dict, 0), out)
+
+    def test_odict(self):
+        out = OrderedDict({'foo': 60.0,
+                           'bar': 16.0,
+                           'baz': 24.0})
+        self.assertDictEqual(iteround.saferound(self.in_odict, 0), out)
 
     def test_tuple(self):
         out = (60., 16., 24.)

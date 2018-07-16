@@ -1,4 +1,5 @@
 from __future__ import absolute_import, division, print_function
+from collections import OrderedDict
 
 SMALLEST = 'smallest'
 LARGEST = 'largest'
@@ -20,9 +21,9 @@ def saferound(iterable, places, strategy=DIFFERENCE, rounder=round):
             Number of places each item in the set should be rounded to.
 
         strategy (str, optional): The strategy used to clean up rounding errors
-            `difference`, 'largest', 'smallest'. Defaults to `difference`
+            'difference', 'largest', 'smallest'. Defaults to 'difference'
 
-            `difference` seeks to minimize the sum of the array of the
+            'difference' seeks to minimize the sum of the array of the
             differences between the original value and the rounded value of
             each item in the iterable. It will adjust the items with the
             largest difference to preserve the sum. This is the default.
@@ -54,7 +55,7 @@ def saferound(iterable, places, strategy=DIFFERENCE, rounder=round):
     assert isinstance(places, int)
     assert strategy in [SMALLEST, LARGEST, DIFFERENCE]
     values = iterable
-    if isinstance(iterable, dict):
+    if (isinstance(iterable, dict) or isinstance(iterable, OrderedDict)):
         keys, values = zip(*iterable.items())
     assert all([isinstance(x, float) for x in values])
 
@@ -88,6 +89,8 @@ def saferound(iterable, places, strategy=DIFFERENCE, rounder=round):
     rounded_list = [n.value for n in _sort_by_order(local)]
     if isinstance(iterable, dict):
         return dict(zip(keys, rounded_list))
+    elif isinstance(iterable, OrderedDict):
+        return OrderedDict(zip(keys, rounded_list))
     elif isinstance(iterable, tuple):
         return tuple(rounded_list)
     return rounded_list
