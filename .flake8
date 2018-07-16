@@ -1,0 +1,8 @@
+[flake8]
+exclude =
+    # No need to traverse our git directory
+    .git,
+    # There's no value in checking cache directories
+    __pycache__,
+    # ignore the unused imports in the init
+    iteround/__init__.py
