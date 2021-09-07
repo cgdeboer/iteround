@@ -6,7 +6,7 @@ LARGEST = 'largest'
 DIFFERENCE = 'difference'
 
 
-def saferound(iterable, places, strategy=DIFFERENCE, rounder=round):
+def saferound(iterable, places, topline=-1, strategy=DIFFERENCE, rounder=round):
     """Rounds an iterable of floats while retaining the original summed value.
 
     Function parameters should be documented in the ``Args`` section. The name
@@ -65,7 +65,7 @@ def saferound(iterable, places, strategy=DIFFERENCE, rounder=round):
 
     # calculate original sum, rounded,  then rounded local sum.
     local = [Number(i, value) for i, value in enumerate(values)]
-    orig_sum = _sumnum(local, places, rounder)
+    orig_sum = _sumnum(local, places, rounder) if topline == -1 else topline
     [n.round(places, rounder) for n in local]
     local_sum = _sumnum(local, places, rounder)
 
