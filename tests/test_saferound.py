@@ -2,7 +2,6 @@ import unittest
 import iteround
 from collections import OrderedDict
 
-
 class TestSafeRoundMethods(unittest.TestCase):
 
     def setUp(self):
@@ -78,6 +77,19 @@ class TestSafeRoundMethods(unittest.TestCase):
     def test_over_with_sum(self):
         out = [0.0, 0.0, 0.0, 10.0, 10.0, 10.0]
         self.assertListEqual(iteround.saferound(self.in_list, -1), out)
+
+    def test_topline(self):
+        out = [4.0, 3.0, 3.0, 7.0, 5.0, 7.0]
+        topline = 29
+        actual_out = iteround.saferound(self.in_list, 0, topline=topline)
+        actual_topline = sum(actual_out)
+        self.assertListEqual(actual_out, out)
+        self.assertEqual(topline, actual_topline)
+
+    def test_topline_sum(self):
+        self.assertEqual(sum(iteround.saferound(self.in_list, 0, topline=28)), 28)
+        self.assertEqual(sum(iteround.saferound(self.in_list, 0, topline=29)), 29)
+        self.assertEqual(sum(iteround.saferound(self.in_list, 0, topline=30)), 30)
 
 
 if __name__ == '__main__':
