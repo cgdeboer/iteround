@@ -71,7 +71,7 @@ def saferound(iterable, places, strategy=DIFFERENCE, rounder=round, topline=None
 
     # calculate original sum, rounded,  then rounded local sum.
     local = [Number(i, value) for i, value in enumerate(values)]
-    orig_sum = _sumnum(local, places, rounder) if topline is None else rounder(topline)
+    orig_sum = _sumnum(local, places, rounder) if topline is None else rounder(topline, places)
     [n.round(places, rounder) for n in local]
     local_sum = _sumnum(local, places, rounder)
 
