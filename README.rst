@@ -40,6 +40,12 @@ iterable (list, dict, set, numpy.array, generator): list(y) of numbers
 
 places (int): Places for rounding.
     Number of places each item in the set should be rounded to.
+	
+topline (float, optional): Topline to match
+	Useful in places where we want the total sum to match a different topline 
+	than the sum of iterable. This can useful in cases where original values 
+	are altered before passing into the saferound method, but the original sum
+	needs to be maintained.
 
 strategy (str, optional): The strategy used to clean up rounding errors
     'difference', 'largest', 'smallest'. Defaults to 'difference'
