@@ -43,10 +43,10 @@ iterable (list, dict, set, numpy.array, generator): list(y) of numbers
 
 places (int): Places for rounding.
     Number of places each item in the set should be rounded to.
-	
+
 topline (float, optional): Topline to match
-	Useful in places where we want the total sum to match a different topline 
-	than the sum of iterable. This can useful in cases where original values 
+	Useful in places where we want the total sum to match a different topline
+	than the sum of iterable. This can useful in cases where original values
 	are altered before passing into the saferound method, but the original sum
 	needs to be maintained.
 
@@ -86,7 +86,7 @@ Iteround definitely supports at least these iterables.
 - `OrderedDict`
 
 
-Iteround officially supports Python 2.7 & 3.4–3.6.
+Iteround officially supports Python 2.7 & 3.4–3.9.
 
 Installation
 ------------
