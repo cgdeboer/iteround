@@ -5,7 +5,7 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="iteround",
-    version="1.0.3",
+    version="1.0.4",
     author="Calvin DeBoer",
     author_email="cgdeboer@gmail.com",
     description=("Rounds iterables (arrays, lists, sets, etc) "

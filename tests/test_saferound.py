@@ -91,6 +91,12 @@ class TestSafeRoundMethods(unittest.TestCase):
         self.assertEqual(sum(iteround.saferound(self.in_list, 0, topline=29)), 29)
         self.assertEqual(sum(iteround.saferound(self.in_list, 0, topline=30)), 30)
 
+    def test_empty_returns_empty(self):
+        out = []
+        topline = 1
+        actual_out = iteround.saferound([], 0, topline=topline)
+        self.assertListEqual(actual_out, out)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -78,7 +78,7 @@ def saferound(iterable, places, strategy=DIFFERENCE, rounder=round, topline=None
     local_sum = _sumnum(local, places, rounder)
 
     # adjust values to adhere to original sum
-    while local_sum != orig_sum:
+    while local and local_sum != orig_sum:
         diff = rounder(orig_sum - local_sum, places)
         if diff < 0.:
             increment = -1 * _mininc(places)

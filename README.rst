@@ -6,6 +6,9 @@ Iteround: Sum-safe Rounding for Iterables
 .. image:: https://img.shields.io/pypi/v/iteround.svg
     :target: https://pypi.org/project/iteround/
 
+.. image:: https://img.shields.io/conda/vn/conda-forge/iteround.svg
+    :target: https://anaconda.org/conda-forge/iteround
+
 Iteround is an organic (standard library) sum-safe rounding library for Python
 iterables (lists, tuples, dicts).
 
