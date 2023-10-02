@@ -1,6 +1,6 @@
 Iteround: Sum-safe Rounding for Iterables
 ========================================
-.. image:: https://travis-ci.org/cgdeboer/iteround.svg?branch=master
+.. image:: https://github.com/cgdeboer/iteround/actions/workflows/ci.yml/badge.svg
     :target: https://travis-ci.org/cgdeboer/iteround
 
 .. image:: https://img.shields.io/pypi/v/iteround.svg
